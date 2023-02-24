@@ -31,7 +31,7 @@ function Main(props) {
     }, [])
 
     return (
-        <main className="content" onKeyDown={props.onKeyDown}>
+        <main className="content">
             <section className="profile">
                 <div className="profile__avatar-edit" onClick={props.onEditAvatar}><div className="profile__avatar" alt="Аватар" style={{ backgroundImage: `url(${userAvatar})` }}/></div>
                 <div className="profile__info">

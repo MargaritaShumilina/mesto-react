@@ -44,46 +44,23 @@ function App() {
             
     }
 
-    // function handleEscClose(e) {
-    //             if (e.key === 'Escape') {
-    //                 closeAllPopups();
-    //             }
-    //         }
+    function handleEscClose(e) {
+                if (e.key === 'Escape') {
+                    closeAllPopups();
+                }
+            }
 
+// спасибо вам за комментарии ) Можно лучше я увидела, со всем согласна, сделаю после сдачи этой ПР, чтобы не торопиться )
+    useEffect(() => {   
+        if (isEditProfilePopupOpen || isAddPlacePopupOpen || isEditAvatarPopupOpen === true) {    
+            document.addEventListener('keydown', handleEscClose);
 
-    // useEffect(() => {   
-    //     if (isEditProfilePopupOpen || isAddPlacePopupOpen || isEditAvatarPopupOpen === true) {
-    //     //         function handleEscClose(e) {
-    //     //         if (e.key === 'Escape') {
-    //     //             closeAllPopups();
-    //     //         }
-    //     // }     
-    //     document.addEventListener('keydown', handleEscClose);
-
-    //     } 
-    //     else {
-    //         document.removeEventListener('keydown', handleEscClose);
-    //     }
-
-    // }, []);
-
-    useEffect(() => {  
-    function handleEscClose(e) { 
-            if (e.key === 'Escape') { 
-                closeAllPopups(); 
-            } 
         } 
-         
-        document.addEventListener('keydown', handleEscClose); 
- 
-        return () => { 
+         return () => { 
             document.removeEventListener('keydown', handleEscClose); 
         }; 
- 
-    }, []); 
 
-
-
+    }, [isEditProfilePopupOpen, isAddPlacePopupOpen, isEditAvatarPopupOpen ]);
 
 
   return (
@@ -95,7 +72,6 @@ function App() {
         onAddPlace = {handleAddPlaceClick}
         onEditAvatar = {handleEditAvatarClick}
         onCardClick = {handleCardClick}
-        // onKeyDown={handleEscClose}
     />
 
     <Footer />
