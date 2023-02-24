@@ -1,7 +1,8 @@
 function Card(props) {
     function handleClick() {
         props.onClick(props.card);
-    }  
+    }
+
         return (   
         <article className="showplace" key={props.card._id} onClick={handleClick}>
             <button className="showplace__remove" type="button"></button>

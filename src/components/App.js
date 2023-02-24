@@ -41,23 +41,48 @@ function App() {
             if (e.target === e.currentTarget) {
                 closeAllPopups();
             }
+            
     }
 
-    useEffect(() => {
+    // function handleEscClose(e) {
+    //             if (e.key === 'Escape') {
+    //                 closeAllPopups();
+    //             }
+    //         }
 
-        function handleEscClose(e) {
-            if (e.key === 'Escape') {
-                closeAllPopups();
-            }
-        }
-        
-        document.addEventListener('keydown', handleEscClose);
 
-        return () => {
-            document.removeEventListener('keydown', handleEscClose);
-        };
+    // useEffect(() => {   
+    //     if (isEditProfilePopupOpen || isAddPlacePopupOpen || isEditAvatarPopupOpen === true) {
+    //     //         function handleEscClose(e) {
+    //     //         if (e.key === 'Escape') {
+    //     //             closeAllPopups();
+    //     //         }
+    //     // }     
+    //     document.addEventListener('keydown', handleEscClose);
 
-    }, [setIsEditProfilePopupOpen, setIsAddPlacePopupOpen, setIsEditAvatarPopupOpen]);
+    //     } 
+    //     else {
+    //         document.removeEventListener('keydown', handleEscClose);
+    //     }
+
+    // }, []);
+
+    useEffect(() => {  
+    function handleEscClose(e) { 
+            if (e.key === 'Escape') { 
+                closeAllPopups(); 
+            } 
+        } 
+         
+        document.addEventListener('keydown', handleEscClose); 
+ 
+        return () => { 
+            document.removeEventListener('keydown', handleEscClose); 
+        }; 
+ 
+    }, []); 
+
+
 
 
 
@@ -70,6 +95,7 @@ function App() {
         onAddPlace = {handleAddPlaceClick}
         onEditAvatar = {handleEditAvatarClick}
         onCardClick = {handleCardClick}
+        // onKeyDown={handleEscClose}
     />
 
     <Footer />
