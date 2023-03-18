@@ -27,7 +27,6 @@ function Card(props) {
         return (   
         <article className="showplace" key={props.card._id}>
             {isOwn && <button className='showplace__remove' onClick={handleDeleteClick} /> } 
-            <button className="showplace__remove" type="button"></button>
             <div className="showplace__image" onClick={handleClick} style={{ backgroundImage: `url(${props.card.link})` }}></div>
             <div className="showplace__signature">
                 <h2 className="showplace__name">{props.card.name}</h2>
